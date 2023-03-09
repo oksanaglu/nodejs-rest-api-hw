@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const ctrl = require("../../controllers/contacts");
-const { ctrlWrapper } = require("../../middlewares/index");
-
+const { ctrlWrapper } = require("../../utils");
 
 router.get("/", ctrlWrapper(ctrl.getAll));
 

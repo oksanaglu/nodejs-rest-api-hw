@@ -1,5 +1,5 @@
 const contacts = require("../../models/contacts");
-const { RequestError } = require("../../middlewares/index");
+const { RequestError } = require("../../utils");
 const { contactSchema } = require("../../schemas/contacts");
 
 const add = async (req, res) => {
