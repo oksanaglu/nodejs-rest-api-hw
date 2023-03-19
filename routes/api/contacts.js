@@ -2,13 +2,14 @@ const express = require("express");
 const router = express.Router();
 const ctrl = require("../../controllers/contacts");
 const { ctrlWrapper } = require("../../utils");
-const { isValidId } = require("../../middlewares");
+const { isValidId, authCurrent } = require("../../middlewares");
 
-router.get("/", ctrlWrapper(ctrl.getAll));
+    
+router.get("/", authCurrent, ctrlWrapper(ctrl.getAll));
 
 router.get("/:id", isValidId, ctrlWrapper(ctrl.getById));
 
-router.post("/", ctrlWrapper(ctrl.add));
+router.post("/", authCurrent, ctrlWrapper(ctrl.add));
 
 router.delete("/:id", isValidId, ctrlWrapper(ctrl.removeById));
 
